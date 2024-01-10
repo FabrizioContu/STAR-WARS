@@ -1,20 +1,16 @@
-import { useContext } from "react";
-import { Navigate } from "react-router-dom";
-import Context from "../../Context/Context";
+import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = ({
   user,
-  children,
+  redirectPath = "/login",
 }: {
   user: boolean;
-  children: any;
+  redirectPath: string;
 }): JSX.Element => {
-  const { isLoggedIn } = useContext(Context);
-  console.log("isLoggedIn:", isLoggedIn);
   if (!user) {
-    return <Navigate to="/login" />;
+    return <Navigate to={redirectPath} />;
   }
-  return children;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

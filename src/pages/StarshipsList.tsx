@@ -3,7 +3,6 @@ import StarshipDetail from "../components/StarshipDetail";
 import Context from "../Context/Context";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
-import { Navigate } from "react-router-dom";
 
 const StarshipList: React.FC = () => {
   const {
@@ -13,11 +12,8 @@ const StarshipList: React.FC = () => {
     showDetails,
     currentPage,
     setCurrentPage,
-    isLoggedIn,
   } = useContext(Context);
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
-  }
+
   return (
     <div>
       <div className="App py-20">

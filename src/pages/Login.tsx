@@ -14,7 +14,7 @@ function Login() {
       body: JSON.stringify(formData),
     })
       .then((res) => {
-        if (!res.ok) {
+        if (!res) {
           throw new Error("Authentication failed");
         }
         return res.json();
@@ -23,7 +23,7 @@ function Login() {
         if (data.user) {
           console.log("Authentication successful");
           setIsLoggedIn(true);
-          navigate("/");
+          navigate("/starships");
 
           // Redirect or perform actions after successful authentication
         } else {
@@ -44,7 +44,7 @@ function Login() {
         onSubmit={(e) => handleSubmit(e)}
       >
         <div>
-          <Link to="/starships">
+          <Link to="/">
             <img className="py-10 h-30 w-60" src={swLogo} alt="" />
           </Link>
         </div>
