@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Pilots, Starship } from "../types.d";
+import { Pilots as PilotsType, Starship } from "../types.d";
 import Context from "../Context/Context";
 
 interface Props {
