@@ -3,9 +3,11 @@ import StarshipDetail from "../components/StarshipDetail";
 import Context from "../Context/Context";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
+import Pilots from "../components/Pilots";
 
 const StarshipList: React.FC = () => {
   const {
+    pilots,
     starships,
     selectedStarship,
     setSelectedStarship,
@@ -13,7 +15,8 @@ const StarshipList: React.FC = () => {
     currentPage,
     setCurrentPage,
   } = useContext(Context);
-
+  console.log(starships);
+  console.log(pilots);
   return (
     <div>
       <div className="App py-20">
@@ -21,6 +24,23 @@ const StarshipList: React.FC = () => {
         <div className="border border-gray-800">
           <Nav />
         </div>
+        {selectedStarship && (
+          <div className="flex-col">
+            <div className="">
+              <StarshipDetail
+                starship={selectedStarship}
+                onClose={() => setSelectedStarship(null)}
+              />
+              <div>
+                <Pilots
+                  starship={selectedStarship}
+                  onClose={() => setSelectedStarship(null)}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
         {starships.map((starship) => (
           <div
             key={starship.MGLT}
@@ -32,14 +52,6 @@ const StarshipList: React.FC = () => {
           </div>
         ))}
 
-        {selectedStarship && (
-          <div>
-            <StarshipDetail
-              starship={selectedStarship}
-              onClose={() => setSelectedStarship(null)}
-            />
-          </div>
-        )}
         <div className="flex justify-center">
           <button
             className=" text-gray-400"

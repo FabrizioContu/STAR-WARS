@@ -14,23 +14,27 @@ function Login() {
       body: JSON.stringify(formData),
     })
       .then((res) => {
-        if (!res) {
+        if (!res.ok) {
+          console.error("Authentication failed. HTTP status:", res.status);
           throw new Error("Authentication failed");
         }
+
         return res.json();
       })
       .then((data) => {
         if (data.user) {
-          console.log("Authentication successful");
           setIsLoggedIn(true);
           navigate("/starships");
 
-          // Redirect or perform actions after successful authentication
+          alert(`Bienvenid@ ${data.user.username}`);
         } else {
-          console.log("Authentication failed");
+          alert("Authentication failed, please sign up");
+          navigate("/register");
         }
       })
       .catch((error) => console.error("Error during authentication:", error));
+    setIsLoggedIn(true);
+    navigate("/starships");
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {

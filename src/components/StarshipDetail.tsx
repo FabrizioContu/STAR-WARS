@@ -17,19 +17,19 @@ const StarshipDetail: React.FC<Props> = ({ starship, onClose }) => {
 
   return (
     <div>
-      <div className="modal">
-        <div className="w-9/12 my-5">
+      <div className="">
+        <div className="w-9/12 my-5 ms-36">
           <div className="border-y border-gray-600 py-4 px-2 font-bold text-white mb-5">
             STARSHIPS
           </div>
           <div className="flex">
             <img
-              className="w-96 bg-contain bg-center"
+              className="w-96 bg-contain bg-center rounded-s-md"
               style={{ backgroundImage: `url(${defaultImg})` }}
               src={starshipImageUrl}
             />
 
-            <div className="bg-neutral-800 font-mono text-xs text-gray-300 grid gap-2 px-4 py-3 border-s border-red-400">
+            <div className="bg-neutral-800 font-mono text-xs text-gray-300 grid gap-2 px-4 py-3 border-s border-red-400 rounded-e-md">
               <h2 className="font-bold">{starship.name.toUpperCase()}</h2>
               <p className="pb-4">
                 Lorem ipsum dolor sit amet consec tetur, adipi sicing elit. Ab

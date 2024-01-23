@@ -24,7 +24,16 @@ function Signup() {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.user) {
+          setIsLoggedIn(true);
+
+          alert(`Bienvenid@ ${data.user.username}`);
+        } else {
+          alert("Registration failed, please try again");
+          navigate("/register");
+        }
+      })
       .catch((error) => console.error("Error:", error));
     setIsLoggedIn(true);
     navigate("/starships");

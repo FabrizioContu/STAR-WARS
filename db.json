@@ -2,33 +2,21 @@
   "users": [
     {
       "email": "fab.contu@gmail.com",
-      "password": "$2a$10$XHU1Gv7aj7dSqTx2YgVXQORiOhglg4BcmIvOCSaR7y6/seGCj.kzK",
+      "password": "$2a$10$dZsD2AS.zAmyg3KmogQxa.4kmGPR68ELY/Ny7rZL9.cRO0HmfVdD6",
       "username": "mastizio",
       "id": 1
     },
     {
-      "email": "fab.conyyyyytu@gmail.com",
-      "password": "$2a$10$xV0JZD2wfNgzmJLa8cf.W.AMsu//9SU3SbdT.8fmJyw3xr7Un68ku",
-      "username": "mastizio",
+      "email": "fab.contu@gmail.comgsdfgf",
+      "password": "$2a$10$EqKKIzmGG2z5QCYEfYp0sOIgXUtUZq6qdGTnFkfwcploqMf2FTXry",
+      "username": "X05820384G",
       "id": 2
     },
     {
-      "email": "fab.contuuuuuuu@gmail.com",
-      "password": "$2a$10$hjHaj4BW.2vTzAs7Pu/DjOTrZ4dLyOcc0tYvyeB2IRq1EwzCimtsy",
-      "username": "mastizio",
+      "email": "fab.contu@gmail.comfgfd",
+      "password": "$2a$10$N6RW8sp9250CEiQs2Gd0EOKUJDKWG4GGkckDIrdznVo.2xdoswl9i",
+      "username": "fab.contu@gmail.comgdfgaef",
       "id": 3
-    },
-    {
-      "email": "fab.cotwertrentu@gmail.comywt",
-      "password": "$2a$10$kMjFSEk7e4Bh/IpL/PyM5uphcSAllzdwIjkX9VCD9yzlxwqkCEK02",
-      "username": "fdsafds",
-      "id": 4
-    },
-    {
-      "email": "fab.conturrrrr@gmail.com",
-      "password": "$2a$10$ggdk/dDZ/nk/EwyRZ7.xrehgTlKV.l5NoeksOTMifGMLDF7PczKRK",
-      "username": "fasdfsd",
-      "id": 5
     }
   ]
 }

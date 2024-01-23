@@ -11,9 +11,12 @@
     "back": "json-server --watch db.json -m ./node_modules/json-server-auth"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.9",
+    "axios": "^1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.21.0",
     "react-use": "^17.4.2"
   },
