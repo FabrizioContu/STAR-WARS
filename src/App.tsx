@@ -8,6 +8,7 @@ import Signup from "./pages/SignUp";
 
 import { useContext } from "react";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
+import StarshipDetailWrapper from "./components/StarshipDetailWrapper";
 
 function App(): JSX.Element {
   const { isLoggedIn } = useContext(Context);
@@ -24,6 +25,7 @@ function App(): JSX.Element {
             }
           >
             <Route path="/starships" element={<StarshipsList />} />
+            <Route path="/starships/:id" element={<StarshipDetailWrapper />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />

@@ -26,9 +26,8 @@ function Signup() {
       .then((res) => res.json())
       .then((data) => {
         if (data.user) {
-          setIsLoggedIn(true);
-
           alert(`Bienvenid@ ${data.user.username}`);
+          setIsLoggedIn(true);
         } else {
           alert("Registration failed, please try again");
           navigate("/register");

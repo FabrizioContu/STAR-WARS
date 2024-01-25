@@ -4,6 +4,7 @@ import Context from "../Context/Context";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
 import Pilots from "../components/Pilots";
+import { Link } from "react-router-dom";
 
 const StarshipList: React.FC = () => {
   const {
@@ -11,7 +12,6 @@ const StarshipList: React.FC = () => {
     starships,
     selectedStarship,
     setSelectedStarship,
-    showDetails,
     currentPage,
     setCurrentPage,
   } = useContext(Context);
@@ -42,13 +42,15 @@ const StarshipList: React.FC = () => {
         )}
 
         {starships.map((starship) => (
-          <div
-            key={starship.MGLT}
-            className="bg-zinc-900 py-2 px-2 mb-4 cursor-pointer mx-72 mt-5 "
-            onClick={() => showDetails(starship)}
-          >
-            <h1>{starship.name.toUpperCase()}</h1>
-            <p>{starship.model}</p>
+          <div className="bg-zinc-900 py-2 px-2 mb-4 cursor-pointer mx-72 mt-5">
+            <Link
+              key={starship.MGLT}
+              to={`/starships/${starship.MGLT}`}
+              className=""
+            >
+              <h1>{starship.name.toUpperCase()}</h1>
+              <p>{starship.model}</p>
+            </Link>
           </div>
         ))}
 

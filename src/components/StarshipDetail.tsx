@@ -6,7 +6,7 @@ interface Props {
   onClose: () => void;
 }
 
-const StarshipDetail: React.FC<Props> = ({ starship, onClose }) => {
+const StarshipDetail: React.FC<Props> = ({ starship }) => {
   const starshipImageUrl = `https://starwars-visualguide.com/assets/img/starships/${starship.url
     .split("/")
     .slice(-2, -1)}.jpg`;
@@ -44,13 +44,6 @@ const StarshipDetail: React.FC<Props> = ({ starship, onClose }) => {
                 <p>Passengers: {starship.passengers}</p>
                 <p>Crew: {starship.crew}</p>
               </div>
-
-              <button
-                className="self-center bg-slate-400 text-white mx-56 rounded-md mt-14"
-                onClick={onClose}
-              >
-                Close
-              </button>
             </div>
           </div>
         </div>

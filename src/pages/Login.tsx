@@ -8,6 +8,8 @@ function Login() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    console.log("Form Data:", formData);
+
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,14 +20,12 @@ function Login() {
           console.error("Authentication failed. HTTP status:", res.status);
           throw new Error("Authentication failed");
         }
-
         return res.json();
       })
       .then((data) => {
         if (data.user) {
           setIsLoggedIn(true);
           navigate("/starships");
-
           alert(`Bienvenid@ ${data.user.username}`);
         } else {
           alert("Authentication failed, please sign up");
@@ -33,7 +33,6 @@ function Login() {
         }
       })
       .catch((error) => console.error("Error during authentication:", error));
-    setIsLoggedIn(true);
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
