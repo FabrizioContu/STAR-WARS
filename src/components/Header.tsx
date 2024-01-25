@@ -36,7 +36,9 @@ const Header: React.FC = () => {
         </ul>
       </div>
       <div className="Logo mb-20">
-        <img className="h-30 w-60  " src={swLogo} alt="" />
+        <Link to="/">
+          <img className="h-30 w-60" src={swLogo} alt="" />
+        </Link>
       </div>
       <div className="registration me-10 flex">
         {isLoggedIn ? (

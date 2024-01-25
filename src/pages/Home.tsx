@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       <div className="">
         <Header />
       </div>
-      <div className=" border border-gray-800 mt-10">
+      <div className=" border border-gray-800">
         <Nav />
       </div>
       <div className="flex flex-col items-center mt-10 mx-12">

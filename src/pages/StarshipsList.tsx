@@ -1,45 +1,21 @@
 import React, { useContext } from "react";
-import StarshipDetail from "../components/StarshipDetail";
+
 import Context from "../Context/Context";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
-import Pilots from "../components/Pilots";
+
 import { Link } from "react-router-dom";
 
 const StarshipList: React.FC = () => {
-  const {
-    pilots,
-    starships,
-    selectedStarship,
-    setSelectedStarship,
-    currentPage,
-    setCurrentPage,
-  } = useContext(Context);
-  console.log(starships);
-  console.log(pilots);
+  const { starships, currentPage, setCurrentPage } = useContext(Context);
+
   return (
     <div>
-      <div className="App py-20">
+      <div className="App pt-20">
         <Header />
         <div className="border border-gray-800">
           <Nav />
         </div>
-        {selectedStarship && (
-          <div className="flex-col">
-            <div className="">
-              <StarshipDetail
-                starship={selectedStarship}
-                onClose={() => setSelectedStarship(null)}
-              />
-              <div>
-                <Pilots
-                  starship={selectedStarship}
-                  onClose={() => setSelectedStarship(null)}
-                />
-              </div>
-            </div>
-          </div>
-        )}
 
         {starships.map((starship) => (
           <div className="bg-zinc-900 py-2 px-2 mb-4 cursor-pointer mx-72 mt-5">
