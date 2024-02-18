@@ -33,6 +33,8 @@ function Login() {
         }
       })
       .catch((error) => console.error("Error during authentication:", error));
+    setIsLoggedIn(true);
+    navigate("/starships");
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {

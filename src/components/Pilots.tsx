@@ -13,7 +13,7 @@ const Pilots: React.FC<Props> = ({ starship }) => {
   return (
     <div>
       <div className="w-9/12 my-5 ms-36">
-        <h2 className="border-y border-gray-600 py-4 px-2 font-bold text-white mb-5">
+        <h2 className="border-y border-gray-500 py-4 px-2 font-bold text-white mb-5">
           PILOTS
         </h2>
 
@@ -33,7 +33,6 @@ const Pilots: React.FC<Props> = ({ starship }) => {
                         alt={`Avatar of ${pilot.name}`}
                         className="w-72 h-96 border-b border-red-400 rounded-t-md"
                       />
-
                       <p className="py-3 font-semibold">
                         {pilot.name.toLocaleUpperCase()}
                       </p>

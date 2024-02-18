@@ -11,7 +11,8 @@ const StarshipDetailWrapper: React.FC = () => {
   const { id } = useParams();
   const { starships, setSelectedStarship } = useContext(Context);
   const selectedStarship = starships.find((starship) => starship.MGLT === id);
-
+  const background =
+    "https://starwars-visualguide.com/assets/img/starships/9.jpg";
   if (!selectedStarship) {
     return <div>Error 404</div>;
   }
@@ -22,7 +23,10 @@ const StarshipDetailWrapper: React.FC = () => {
       <div className="border border-gray-800">
         <Nav />
       </div>
-      <div className="flex-col">
+      <div
+        className="flex-col bg-cover"
+        style={{ backgroundImage: `url(${background})` }}
+      >
         <div className="">
           <StarshipDetail
             starship={selectedStarship}
