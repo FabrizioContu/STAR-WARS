@@ -68,7 +68,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
   const fetchStarships = async (page: number) => {
     try {
       const response = await fetch(
-        `https://swapi.dev/api/starships/?page=${page}`
+        `https://swapi.py4e.com/api/starships/?page=${page}`
       );
       const data = await response.json();
       setStarships((prevResult) => prevResult.concat(data.results));
