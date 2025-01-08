@@ -18,7 +18,7 @@ const StarshipList: React.FC = () => {
         </div>
 
         {starships.map((starship) => (
-          <div className="bg-zinc-900 py-2 px-2 mb-4 cursor-pointer mx-72 mt-5">
+          <div className="bg-zinc-900 py-3 px-2 mb-4 cursor-pointer mx-72 mt-5">
             <Link
               key={starship.MGLT}
               to={`/starships/${starship.MGLT}`}
