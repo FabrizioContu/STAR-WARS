@@ -16,26 +16,26 @@ function Signup() {
     username: "",
   });
   const navigate = useNavigate();
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.user) {
-          alert(`Bienvenid@ ${data.user.username}`);
-          setIsLoggedIn(true);
-        } else {
-          alert("Registration failed, please try again");
-          navigate("/register");
-        }
-      })
-      .catch((error) => console.error("Error:", error));
-    setIsLoggedIn(true);
-    navigate("/starships");
+    try {
+      const res = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.user) {
+        alert(`Bienvenid@ ${data.user.username}`);
+        setIsLoggedIn(true);
+        navigate("/starships");
+      } else {
+        alert("Registration failed, please try again");
+        navigate("/register");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -96,13 +96,13 @@ function Signup() {
                     required
                   />
                   <input
-                    type="text"
+                    type="password"
                     className="bg-gray-200 border text-black text-sm block w-full p-4"
                     placeholder="Password"
                     value={formData.password}
                     name="password"
                     onChange={(e) => handleChange(e)}
-                  ></input>
+                  />
                 </div>
 
                 <button

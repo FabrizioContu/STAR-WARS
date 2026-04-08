@@ -17,18 +17,17 @@ const StarshipList: React.FC = () => {
           <Nav />
         </div>
 
-        {starships.map((starship) => (
-          <div className="bg-zinc-900 py-3 px-2 mb-4 cursor-pointer mx-72 mt-5">
-            <Link
-              key={starship.MGLT}
-              to={`/starships/${starship.MGLT}`}
-              className=""
-            >
-              <h1>{starship.name.toUpperCase()}</h1>
-              <p>{starship.model}</p>
-            </Link>
-          </div>
-        ))}
+        {starships.map((starship) => {
+          const urlId = starship.url.split("/").slice(-2, -1)[0];
+          return (
+            <div key={starship.url} className="bg-zinc-900 py-3 px-2 mb-4 cursor-pointer mx-72 mt-5">
+              <Link to={`/starships/${urlId}`}>
+                <h1>{starship.name.toUpperCase()}</h1>
+                <p>{starship.model}</p>
+              </Link>
+            </div>
+          );
+        })}
 
         <div className="flex justify-center">
           <button

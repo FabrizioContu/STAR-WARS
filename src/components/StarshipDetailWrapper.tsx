@@ -9,13 +9,16 @@ import Nav from "./Nav";
 
 const StarshipDetailWrapper: React.FC = () => {
   const { id } = useParams();
-  const { starships, setSelectedStarship } = useContext(Context);
-  const selectedStarship = starships.find((starship) => starship.MGLT === id);
-  const background =
-    "https://starwars-visualguide.com/assets/img/starships/9.jpg";
+  const { starships } = useContext(Context);
+  const selectedStarship = starships.find(
+    (starship) => starship.url.split("/").slice(-2, -1)[0] === id
+  );
+
   if (!selectedStarship) {
     return <div>Error 404</div>;
   }
+
+  const background = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
 
   return (
     <div className="App py-20">
@@ -24,19 +27,13 @@ const StarshipDetailWrapper: React.FC = () => {
         <Nav />
       </div>
       <div
-        className="flex-col bg-cover"
+        className="flex-col bg-cover bg-zinc-950"
         style={{ backgroundImage: `url(${background})` }}
       >
         <div className="">
-          <StarshipDetail
-            starship={selectedStarship}
-            onClose={() => setSelectedStarship(null)}
-          />
+          <StarshipDetail starship={selectedStarship} />
           <div>
-            <Pilots
-              starship={selectedStarship}
-              onClose={() => setSelectedStarship(null)}
-            />
+            <Pilots starship={selectedStarship} />
           </div>
         </div>
       </div>

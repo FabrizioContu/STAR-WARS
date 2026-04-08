@@ -1,11 +1,8 @@
-import { useContext } from "react";
 import Nav from "../components/Nav";
-import Context from "../Context/Context";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 const Home: React.FC = () => {
-  const {} = useContext(Context);
 
   return (
     <div className="App py-20 ">

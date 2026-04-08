@@ -6,35 +6,27 @@ function Login() {
   const { swLogo, formData, setFormData, setIsLoggedIn } = useContext(Context);
   const navigate = useNavigate();
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("Form Data:", formData);
-
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          console.error("Authentication failed. HTTP status:", res.status);
-          throw new Error("Authentication failed");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.user) {
-          setIsLoggedIn(true);
-          navigate("/starships");
-          alert(`Bienvenid@ ${data.user.username}`);
-        } else {
-          alert("Authentication failed, please sign up");
-          navigate("/register");
-        }
-      })
-      .catch((error) => console.error("Error during authentication:", error));
-    setIsLoggedIn(true);
-    navigate("/starships");
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Authentication failed");
+      const data = await res.json();
+      if (data.user) {
+        setIsLoggedIn(true);
+        alert(`Bienvenid@ ${data.user.username}`);
+        navigate("/starships");
+      } else {
+        alert("Authentication failed, please sign up");
+        navigate("/register");
+      }
+    } catch (error) {
+      console.error("Error during authentication:", error);
+    }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -84,13 +76,13 @@ function Login() {
                     onChange={(e) => handleChange(e)}
                   />
                   <input
-                    type="text"
+                    type="password"
                     className="bg-gray-200 border text-black text-sm block w-full p-4 mt-5"
                     placeholder="Password"
                     value={formData.password}
                     name="password"
                     onChange={(e) => handleChange(e)}
-                  ></input>
+                  />
                 </div>
 
                 <button
