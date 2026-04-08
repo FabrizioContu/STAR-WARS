@@ -8,6 +8,7 @@ const Header: React.FC = () => {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem("isLoggedIn");
   };
   return (
     <div className="flex justify-between">

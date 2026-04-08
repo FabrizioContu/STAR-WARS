@@ -35,6 +35,7 @@ function Signup() {
       }
     } catch (error) {
       console.error("Error:", error);
+      alert("Could not connect to the server. Please try again.");
     }
   }
 

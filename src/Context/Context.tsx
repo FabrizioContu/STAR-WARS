@@ -49,7 +49,9 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
   const [starships, setStarships] = useState<Starship[]>([]);
   const [selectedStarship, setSelectedStarship] = useState<Starship | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
+    () => localStorage.getItem("isLoggedIn") === "true"
+  );
   const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
@@ -70,6 +72,10 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("isLoggedIn", String(isLoggedIn));
+  }, [isLoggedIn]);
 
   useEffect(() => {
     fetchStarships(currentPage);

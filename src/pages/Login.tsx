@@ -26,6 +26,7 @@ function Login() {
       }
     } catch (error) {
       console.error("Error during authentication:", error);
+      alert("Could not connect to the server. Please try again.");
     }
   }
 
